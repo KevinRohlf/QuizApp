@@ -1,0 +1,48 @@
+@font-face {
+    font-family: PTSans;
+    src: url(./font/PTSans-Regular.ttf);
+  }
+@font-face {
+    font-family: Rubic;
+    src: url(./font/Rubik-VariableFont_wght.ttf);
+}
+
+
+
+body {
+    background-color: #FEFAEF !important;
+}
+
+.col-md-4 {
+    background-color: #27355C;
+}
+
+.middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.linkBar {
+    font-family: Rubic;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linkBar a {
+    color: #AEB9D9;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    padding-left: 70px;
+    transition: all ease-in-out 125ms;
+}
+
+.linkBar a:hover {
+    border-left: 3px solid white;
+    color: white;
+    transition: all ease-in-out 125ms;
+}
