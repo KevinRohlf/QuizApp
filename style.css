@@ -15,6 +15,11 @@ body {
 
 .col-md-4 {
     background-color: #27355C;
+    height: 50vh !important;
+}
+
+.col-md-8 {
+    height: 50vh !important;
 }
 
 .middle {
@@ -45,4 +50,8 @@ body {
     border-left: 3px solid white;
     color: white;
     transition: all ease-in-out 125ms;
+}
+
+.card {
+    height: 50vh !important;
 }
