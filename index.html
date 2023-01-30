@@ -18,20 +18,28 @@
 
 <body>
     <div class="middle">
-        <div class="card mb-3" style="max-width: 80vw;">
+        <div class="card mb-3" style="min-width: 40vw; max-width: 80vw;">
             <div class="row g-0">
                 <div class="col-md-4 img-fluid rounded-start linkBar">
-                    <a href="#">HTML</a>
-                    <a href="#">CSS</a>
-                    <a href="#">JS</a>
-                    <a href="#">Java</a>
+                    <div class="logo">
+                        <img src="./img/logo.png" alt="">
+                    </div>
+                    <a id="HTML" onclick="linkFocused('HTML')" href="#">HTML</a>
+                    <a id="CSS" onclick="linkFocused('CSS')" href="#">CSS</a>
+                    <a id="JS" onclick="linkFocused('JS')" href="#">JS</a>
+                    <a id="Java" onclick="linkFocused('Java')" href="#">Java</a>
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">Welcome to<br>
+                            The Awesome HTML Quiz</h5>
+                        <span>Ready for the Challenge?</span>
+
+                        <button>
+                            START NOW
+                            <img src="./img/arrow_forward.svg">
+                        </button>
+                        
                     </div>
                 </div>
             </div>
