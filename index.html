@@ -17,20 +17,23 @@
 </head>
 
 <body>
-    <div class="middle">
-        <div class="card mb-3" style="min-width: 40vw; max-width: 80vw;">
-            <div class="row g-0">
-                <div class="col-md-4 img-fluid rounded-start linkBar">
-                    <div class="logo">
+    <div class="h100 d-flex align-items-center justify-content-center">
+        <div class="card mb-3" style="min-width: 540px;">
+            <div class="row">
+                <div
+                    class="col-md-4 position-relative flex-column rounded-start d-flex justify-content-center gap-2">
+                    <div class="logo mt-3 d-flex justify-content-center">
                         <img src="./img/logo.png" alt="">
                     </div>
-                    <a id="HTML" onclick="linkFocused('HTML')" href="#">HTML</a>
-                    <a id="CSS" onclick="linkFocused('CSS')" href="#">CSS</a>
-                    <a id="JS" onclick="linkFocused('JS')" href="#">JS</a>
-                    <a id="Java" onclick="linkFocused('Java')" href="#">Java</a>
+                    <div class="linkbar flex-column rounded-start d-flex justify-content-center gap-2" style="min-height:30vh;">
+                        <a id="HTML" onclick="linkFocused('HTML')" href="#">HTML</a>
+                        <a id="CSS" onclick="linkFocused('CSS')" href="#">CSS</a>
+                        <a id="JS" onclick="linkFocused('JS')" href="#">JS</a>
+                        <a id="Java" onclick="linkFocused('Java')" href="#">Java</a>
+                    </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body h-100 text-center d-flex justify-content-center align-items-center flex-column" >
                         <h5 class="card-title">Welcome to<br>
                             The Awesome HTML Quiz</h5>
                         <span>Ready for the Challenge?</span>
@@ -39,7 +42,6 @@
                             START NOW
                             <img src="./img/arrow_forward.svg">
                         </button>
-                        
                     </div>
                 </div>
             </div>
