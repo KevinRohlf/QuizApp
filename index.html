@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizApp</title>
+    <script src="database.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <!-- Bootstrap files-->
@@ -16,16 +17,16 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="h100 d-flex align-items-center justify-content-center">
+<body onload="render()">
+    <div class="vh-100 d-flex align-items-center justify-content-center">
         <div class="card mb-3" style="min-width: 540px;">
             <div class="row">
-                <div
-                    class="col-md-4 position-relative flex-column rounded-start d-flex justify-content-center gap-2">
+                <div class="col-md-4 position-relative flex-column rounded-start d-flex justify-content-center gap-2">
                     <div class="logo mt-3 d-flex justify-content-center">
                         <img src="./img/logo.png" alt="">
                     </div>
-                    <div class="linkbar flex-column rounded-start d-flex justify-content-center gap-2" style="min-height:30vh;">
+                    <div class="linkbar flex-column rounded-start d-flex justify-content-center gap-2"
+                        style="min-height:30vh;">
                         <a id="HTML" onclick="linkFocused('HTML')" href="#">HTML</a>
                         <a id="CSS" onclick="linkFocused('CSS')" href="#">CSS</a>
                         <a id="JS" onclick="linkFocused('JS')" href="#">JS</a>
@@ -33,15 +34,64 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body h-100 text-center d-flex justify-content-center align-items-center flex-column" >
-                        <h5 class="card-title">Welcome to<br>
+                    <div class="card-body bg h-100 d-flex justify-content-center align-items-center flex-column">
+                        <!--<h5 class="card-title">Welcome to<br>
                             The Awesome HTML Quiz</h5>
                         <span>Ready for the Challenge?</span>
 
-                        <button>
+                        <button class="position-button">
                             START NOW
                             <img src="./img/arrow_forward.svg">
-                        </button>
+                        </button>-->
+                        <h5 class="mb-4" id="question-text">Frage</h5>
+
+                        <div id="boxAnswer_1" class="card mb-2 w-100 border-0 rounded-0">
+
+                            <div onclick="answer(1)" class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
+                                <div class="cube d-flex justify-content-center align-items-center ms-2">
+                                    A
+                                </div>
+                                <span id="answer_1">Antwort</span> 
+                            </div>
+                        </div>
+
+
+                        <div id="boxAnswer_2" class="card mb-2 w-100 border-0 rounded-0">
+
+                            <div onclick="answer(2)"
+                                class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
+                                <div class="cube d-flex justify-content-center align-items-center ms-2">
+                                    B
+                                </div>
+                                <span id="answer_2">Antwort</span> 
+                            </div>
+                        </div>
+
+                        <div id="boxAnswer_3" class="card mb-2 w-100 border-0 rounded-0">
+
+                            <div  onclick="answer(3)" class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
+                                <div class="cube d-flex justify-content-center align-items-center ms-2">
+                                    C
+                                </div>
+                                <span id="answer_3">Antwort</span> 
+                            </div>
+                        </div>
+
+                        <div id="boxAnswer_4" class="card mb-2 w-100 border-0 rounded-0 mb-5">
+
+                            <div onclick="answer(4)" class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
+                                <div class="cube d-flex justify-content-center align-items-center ms-2">
+                                    D
+                                </div>
+                                <span id="answer_4">Antwort</span> 
+                            </div>
+                        </div>
+
+                        <div class="mb-2 w-50 question-footer d-flex justify-content-between position-absolute bottom-0">
+                            <span><b id="currentquestion">1</b> von <b id="questionCount"></b> Fragen</span>
+                            <button onclick="nextQuestion()">nächste Frage</button>
+                        </div>
+
                     </div>
                 </div>
             </div>

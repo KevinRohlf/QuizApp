@@ -1,3 +1,16 @@
+let currentQuestion = 0
+
+
+
+
+
+function render() {
+    renderQuestionCount();
+    showQuestion();
+}
+
+
+
 function linkFocused(link) {
     let index = document.getElementById(link);
     let links = ['HTML', 'CSS', 'JS', 'Java'];
@@ -10,4 +23,46 @@ function linkFocused(link) {
         c.classList.remove('linkFocused');
     }
     index.classList.add('linkFocused');
-} 
+};
+
+function renderQuestionCount() {
+    let index = document.getElementById('questionCount');
+
+    index.innerHTML = questions.length;
+};
+
+
+function showQuestion() {
+    let question = questions[currentQuestion];
+
+    document.getElementById('question-text').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+}
+
+function answer(i){
+    let question = questions[currentQuestion];
+    let index = document.getElementById(`boxAnswer_${i}`);
+    let text = document.getElementById(`answer_${i}`)
+
+    if (i === question['right_answer']) {
+        alert('richtig');
+        index.classList.add('border-success');
+        index.classList.remove('border-0');
+        text.classList.add('text-success')
+    }
+    else {
+        alert('falsch')
+        index.classList.add('border-danger');
+        index.classList.remove('border-0');
+        text.classList.add('text-danger')
+    }
+}
+
+
+function nextQuestion(){
+    currentQuestion++;
+    showQuestion()
+}
