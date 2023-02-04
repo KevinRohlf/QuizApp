@@ -89,3 +89,8 @@ body {
   height: 40px !important;
   width: 40px !important;
 }
+
+.quiz-answer:hover {
+  cursor: pointer;
+  background-color: #D6D6D6;
+}

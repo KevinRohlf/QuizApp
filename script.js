@@ -46,6 +46,7 @@ function answer(i){
     let question = questions[currentQuestion];
     let index = document.getElementById(`boxAnswer_${i}`);
     let text = document.getElementById(`answer_${i}`)
+    let right_answer = document.getElementById(`boxAnswer_${question['right_answer']}`)
 
     if (i === question['right_answer']) {
         alert('richtig');
@@ -58,11 +59,16 @@ function answer(i){
         index.classList.add('border-danger');
         index.classList.remove('border-0');
         text.classList.add('text-danger')
+
+        right_answer.classList.add('border-success');
+        right_answer.classList.remove('border-0');
+        console.log(right_answer)
     }
+    document.getElementById('next-button').disabled = false;
 }
 
 
 function nextQuestion(){
     currentQuestion++;
-    showQuestion()
+    showQuestion();
 }
