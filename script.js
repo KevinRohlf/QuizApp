@@ -5,7 +5,6 @@ let currentQuestion = 0
 
 
 function render() {
-    renderQuestionCount();
     showQuestion();
 }
 
@@ -27,8 +26,11 @@ function linkFocused(link) {
 
 function renderQuestionCount() {
     let index = document.getElementById('questionCount');
+    let count = document.getElementById('currentquestioncount');
+
 
     index.innerHTML = questions.length;
+    count.innerHTML = currentQuestion + 1;
 };
 
 
@@ -40,6 +42,8 @@ function showQuestion() {
     document.getElementById('answer_2').innerHTML = question['answer_2'];
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
+
+    renderQuestionCount();
 }
 
 function answer(i){
@@ -49,26 +53,26 @@ function answer(i){
     let right_answer = document.getElementById(`boxAnswer_${question['right_answer']}`)
 
     if (i === question['right_answer']) {
-        alert('richtig');
-        index.classList.add('border-success');
-        index.classList.remove('border-0');
-        text.classList.add('text-success')
+        index.classList.add('bg-success');
     }
     else {
-        alert('falsch')
-        index.classList.add('border-danger');
-        index.classList.remove('border-0');
-        text.classList.add('text-danger')
-
-        right_answer.classList.add('border-success');
-        right_answer.classList.remove('border-0');
-        console.log(right_answer)
+        index.classList.add('bg-danger');
+        right_answer.classList.add('bg-success');
     }
     document.getElementById('next-button').disabled = false;
 }
 
 
 function nextQuestion(){
-    currentQuestion++;
+    currentQuestion++;    
     showQuestion();
+    resetAnswerButtons();
+    document.getElementById('next-button').disabled = true;
+}
+
+function resetAnswerButtons() {
+    for (let i = 1; i < 5; i++){
+        document.getElementById(`boxAnswer_${i}`).classList.remove('bg-success');
+        document.getElementById(`boxAnswer_${i}`).classList.remove('bg-danger');
+    }
 }
