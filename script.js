@@ -35,18 +35,23 @@ function renderQuestionCount() {
 
 
 function showQuestion() {
-    let question = questions[currentQuestion];
+    if (currentQuestion >= questions.length) {
+        document.getElementById('endscreen').style = '';
+        document.getElementById('quiz').style = 'display: none !important;'
+    } else {
+        let question = questions[currentQuestion];
 
-    document.getElementById('question-text').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+        document.getElementById('question-text').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
 
-    renderQuestionCount();
+        renderQuestionCount();
+    }
 }
 
-function answer(i){
+function answer(i) {
     let question = questions[currentQuestion];
     let index = document.getElementById(`boxAnswer_${i}`);
     let text = document.getElementById(`answer_${i}`)
@@ -63,15 +68,15 @@ function answer(i){
 }
 
 
-function nextQuestion(){
-    currentQuestion++;    
+function nextQuestion() {
+    currentQuestion++;
     showQuestion();
     resetAnswerButtons();
     document.getElementById('next-button').disabled = true;
 }
 
 function resetAnswerButtons() {
-    for (let i = 1; i < 5; i++){
+    for (let i = 1; i < 5; i++) {
         document.getElementById(`boxAnswer_${i}`).classList.remove('bg-success');
         document.getElementById(`boxAnswer_${i}`).classList.remove('bg-danger');
     }

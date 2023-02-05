@@ -33,8 +33,30 @@
                         <a id="Java" onclick="linkFocused('Java')" href="#">Java</a>
                     </div>
                 </div>
+
                 <div class="col-md-8">
-                    <div class="card-body bg h-100 d-flex justify-content-center align-items-center flex-column">
+                    <div id="endscreen" class="card-body d-flex justify-content-center align-items-center flex-column imgclass">
+                        <img src="./img/brain result.png">
+                        <h5 class="mb-4">COMPLETE<br>
+                            HTML QUIZ
+                        </h5>
+
+                        <div class="d-flex justify-content-center gap-5 mb-4" style="font-weight: bold;">
+                            <span style="color: #E29F6B;">
+                                YOUR SCORE 
+                            </span>
+                            <span>
+                                3/3
+                            </span>
+                        </div>
+
+                        <button class="btn btn-primary">SHARE</button>
+                        <a href="#">Replay</a>
+
+                        
+                    </div>
+                    <div id="quiz"
+                        class="card-body bg h-100 d-flex justify-content-center align-items-center flex-column" style="display: none !important;">
                         <!--<h5 class="card-title">Welcome to<br>
                             The Awesome HTML Quiz</h5>
                         <span>Ready for the Challenge?</span>
@@ -47,11 +69,12 @@
 
                         <div id="boxAnswer_1" class="card quiz-answer mb-2 w-100 border-0 rounded-0">
 
-                            <div onclick="answer(1)" class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
+                            <div onclick="answer(1)"
+                                class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
                                 <div class="cube d-flex justify-content-center align-items-center ms-2">
                                     A
                                 </div>
-                                <span id="answer_1">Antwort</span> 
+                                <span id="answer_1">Antwort</span>
                             </div>
                         </div>
 
@@ -63,31 +86,34 @@
                                 <div class="cube d-flex justify-content-center align-items-center ms-2">
                                     B
                                 </div>
-                                <span id="answer_2">Antwort</span> 
+                                <span id="answer_2">Antwort</span>
                             </div>
                         </div>
 
                         <div id="boxAnswer_3" class="card quiz-answer mb-2 w-100 border-0 rounded-0">
 
-                            <div  onclick="answer(3)" class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
+                            <div onclick="answer(3)"
+                                class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
                                 <div class="cube d-flex justify-content-center align-items-center ms-2">
                                     C
                                 </div>
-                                <span id="answer_3">Antwort</span> 
+                                <span id="answer_3">Antwort</span>
                             </div>
                         </div>
 
                         <div id="boxAnswer_4" class="card quiz-answer mb-2 w-100 border-0 rounded-0 mb-5">
 
-                            <div onclick="answer(4)" class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
+                            <div onclick="answer(4)"
+                                class="card-body d-flex gap-2 position-relative justify-content-center align-items-center">
                                 <div class="cube d-flex justify-content-center align-items-center ms-2">
                                     D
                                 </div>
-                                <span id="answer_4">Antwort</span> 
+                                <span id="answer_4">Antwort</span>
                             </div>
                         </div>
 
-                        <div class="mb-2 w-50 question-footer d-flex justify-content-between position-absolute bottom-0">
+                        <div
+                            class="mb-2 w-50 question-footer d-flex justify-content-between position-absolute bottom-0">
                             <span><b id="currentquestioncount">1</b> von <b id="questionCount"></b> Fragen</span>
                             <button id="next-button" disabled onclick="nextQuestion()">nächste Frage</button>
                         </div>

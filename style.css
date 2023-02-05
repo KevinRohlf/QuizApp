@@ -3,7 +3,7 @@
     src: url(./font/PTSans-Regular.ttf);
   }
 @font-face {
-    font-family: Rubic;
+    font-family: Rubik;
     src: url(./font/Rubik-VariableFont_wght.ttf);
 }
 
@@ -40,7 +40,7 @@ body {
   border-left: 3px solid transparent;
   padding-left: 50px;
   transition: all ease-in-out 125ms;
-  font-family: Rubic;
+  font-family: Rubik;
 }
 
 .linkbar a:hover {
@@ -94,3 +94,15 @@ body {
   cursor: pointer;
   background-color: #D6D6D6;
 }
+
+.imgclass img{
+  width: 80px;
+}
+.imgclass{
+  font-family: Rubik;
+}
+
+.imgclass h5 {
+  font-weight: bold;
+}
+
