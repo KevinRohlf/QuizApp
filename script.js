@@ -107,4 +107,5 @@ function restart() {
     document.getElementById('tropy').style = 'display: none !important;';
     document.getElementById('quiz').style = '';
     showQuestion();
+    points = 0;
 }
