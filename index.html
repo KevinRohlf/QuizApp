@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuizApp</title>
+    <link rel="shortcut icon" href="./img/brain result.png" type="image/x-icon">
     <script src="database.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -18,7 +19,12 @@
 </head>
 
 <body onload="render()">
+    <div class="progress position-absolute top-0 end-0 start-0" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" id="progress-bar" style="width: 25%">25%</div>
+    </div>
     <div class="vh-100 d-flex align-items-center justify-content-center">
+        
+        <img id="tropy" style="display: none;" class="position-absolute end-0 z-3" src="./img/tropy.png">
         <div class="card mb-3" style="min-width: 540px;">
             <div class="row">
                 <div class="col-md-4 position-relative flex-column rounded-start d-flex justify-content-center gap-2">
@@ -26,7 +32,7 @@
                         <img src="./img/logo.png" alt="">
                     </div>
                     <div class="linkbar flex-column rounded-start d-flex justify-content-center gap-2"
-                        style="min-height:30vh;">
+                        style="min-height: 380px;">
                         <a id="HTML" onclick="linkFocused('HTML')" href="#">HTML</a>
                         <a id="CSS" onclick="linkFocused('CSS')" href="#">CSS</a>
                         <a id="JS" onclick="linkFocused('JS')" href="#">JS</a>
@@ -35,7 +41,8 @@
                 </div>
 
                 <div class="col-md-8">
-                    <div id="endscreen" class="card-body d-flex justify-content-center align-items-center flex-column imgclass">
+                    <div id="endscreen" class="card-body h-100 d-flex justify-content-center align-items-center flex-column imgclass" style="display: none !important;">
+                        
                         <img src="./img/brain result.png">
                         <h5 class="mb-4">COMPLETE<br>
                             HTML QUIZ
@@ -46,17 +53,17 @@
                                 YOUR SCORE 
                             </span>
                             <span>
-                                3/3
+                                <b id="result">3/3</b> 
                             </span>
                         </div>
 
-                        <button class="btn btn-primary">SHARE</button>
-                        <a href="#">Replay</a>
+                        <button class="btn btn-primary" style="width: 150px;">SHARE</button>
+                        <a onclick="restart()" href="#" class="text-decoration-none">Replay</a>
 
                         
                     </div>
                     <div id="quiz"
-                        class="card-body bg h-100 d-flex justify-content-center align-items-center flex-column" style="display: none !important;">
+                        class="card-body bg h-100 d-flex justify-content-center align-items-center flex-column">
                         <!--<h5 class="card-title">Welcome to<br>
                             The Awesome HTML Quiz</h5>
                         <span>Ready for the Challenge?</span>

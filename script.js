@@ -1,5 +1,6 @@
-let currentQuestion = 0
-
+let currentQuestion = 0;
+let points = 0;
+let audioSuccess = new Audio('./mp3/success.mp3')
 
 
 
@@ -36,29 +37,43 @@ function renderQuestionCount() {
 
 function showQuestion() {
     if (currentQuestion >= questions.length) {
-        document.getElementById('endscreen').style = '';
-        document.getElementById('quiz').style = 'display: none !important;'
+        showEndscreen();
     } else {
         let question = questions[currentQuestion];
-
         document.getElementById('question-text').innerHTML = question['question'];
         document.getElementById('answer_1').innerHTML = question['answer_1'];
         document.getElementById('answer_2').innerHTML = question['answer_2'];
         document.getElementById('answer_3').innerHTML = question['answer_3'];
         document.getElementById('answer_4').innerHTML = question['answer_4'];
-
+    	progressBar();
         renderQuestionCount();
     }
+}
+
+function showEndscreen(){
+    document.getElementById('endscreen').style = '';
+    document.getElementById('tropy').style = '';
+    document.getElementById('quiz').style = 'display: none !important;';
+    result();
+    progressBar();
+}
+
+function progressBar() {
+        let progress = currentQuestion / questions.length;
+        progress = Math.round(progress * 100);
+        document.getElementById('progress-bar').innerHTML = `${progress}%`;
+        document.getElementById('progress-bar').style = `width: ${progress}%`;
 }
 
 function answer(i) {
     let question = questions[currentQuestion];
     let index = document.getElementById(`boxAnswer_${i}`);
-    let text = document.getElementById(`answer_${i}`)
     let right_answer = document.getElementById(`boxAnswer_${question['right_answer']}`)
-
     if (i === question['right_answer']) {
         index.classList.add('bg-success');
+        points++;
+        index.disabled = true;
+        audioSuccess.play();
     }
     else {
         index.classList.add('bg-danger');
@@ -80,4 +95,16 @@ function resetAnswerButtons() {
         document.getElementById(`boxAnswer_${i}`).classList.remove('bg-success');
         document.getElementById(`boxAnswer_${i}`).classList.remove('bg-danger');
     }
+}
+
+function result() {
+    document.getElementById('result').innerHTML = `${points}/${questions.length}`;
+}
+
+function restart() {
+    currentQuestion = 0;
+    document.getElementById('endscreen').style = 'display: none !important;';
+    document.getElementById('tropy').style = 'display: none !important;';
+    document.getElementById('quiz').style = '';
+    showQuestion();
 }
