@@ -28,26 +28,32 @@ function linkFocused(link) {
 function renderQuestionCount() {
     let index = document.getElementById('questionCount');
     let count = document.getElementById('currentquestioncount');
-
-
     index.innerHTML = questions.length;
     count.innerHTML = currentQuestion + 1;
 };
 
 
 function showQuestion() {
-    if (currentQuestion >= questions.length) {
+    if (gameIsOver()) {
         showEndscreen();
     } else {
-        let question = questions[currentQuestion];
-        document.getElementById('question-text').innerHTML = question['question'];
-        document.getElementById('answer_1').innerHTML = question['answer_1'];
-        document.getElementById('answer_2').innerHTML = question['answer_2'];
-        document.getElementById('answer_3').innerHTML = question['answer_3'];
-        document.getElementById('answer_4').innerHTML = question['answer_4'];
+        loadNewQuestion();
     	progressBar();
         renderQuestionCount();
     }
+}
+
+function gameIsOver() {
+    return currentQuestion >= questions.length;
+}
+
+function loadNewQuestion() {
+    let question = questions[currentQuestion];
+    document.getElementById('question-text').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
 
 function showEndscreen(){
